@@ -29,7 +29,7 @@ export default async function EditProductPage({ params }: Params) {
           priceMillimes: product.priceMillimes,
           salePriceMillimes: product.salePriceMillimes,
           categoryId: product.categoryId,
-          status: product.status,
+          status: product.status as "ACTIVE" | "DRAFT" | "ARCHIVED",
           isFeatured: product.isFeatured,
           isBestSeller: product.isBestSeller,
           isNewArrival: product.isNewArrival,
