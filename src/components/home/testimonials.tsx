@@ -81,7 +81,7 @@ export function Testimonials() {
             className="absolute -top-8 left-1/2 -translate-x-1/2 font-serif text-9xl text-gold/10 select-none pointer-events-none leading-none"
             aria-hidden="true"
           >
-            "
+            &ldquo;
           </div>
 
           <AnimatePresence mode="wait">

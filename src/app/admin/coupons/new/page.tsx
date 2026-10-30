@@ -52,7 +52,7 @@ export default function NewCouponPage() {
         <div><label className={lc}>Utilisations max.</label><input type="number" {...register("maxUsage", { valueAsNumber: true })} className={ic} placeholder="Illimité" /></div>
         <div className="grid grid-cols-2 gap-4">
           <div><label className={lc}>Date de début</label><input type="datetime-local" {...register("startsAt")} className={ic} /></div>
-          <div><label className={lc}>Date d'expiration</label><input type="datetime-local" {...register("expiresAt")} className={ic} /></div>
+          <div><label className={lc}>Date d&apos;expiration</label><input type="datetime-local" {...register("expiresAt")} className={ic} /></div>
         </div>
         <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" {...register("freeShipping")} className="accent-gold" /><span className="text-sm text-stone">Livraison gratuite incluse</span></label>
         <div className="flex gap-4">
