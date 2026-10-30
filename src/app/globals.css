@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-cormorant: 'Cormorant Garamond', serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-obsidian text-ivory font-sans antialiased;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian-50;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-light rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-muted;
+  }
+
+  /* ── Selection ── */
+  ::selection {
+    @apply bg-gold/20 text-ivory;
+  }
+
+  /* ── Focus visible ── */
+  :focus-visible {
+    @apply outline-none ring-1 ring-gold ring-offset-2 ring-offset-obsidian;
+  }
+
+  /* ── Typography defaults ── */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+@layer components {
+  /* ── Gold shimmer effect ── */
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      #C8A45D 0%,
+      #E4CC91 40%,
+      #C8A45D 60%,
+      #A8843D 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* ── Luxury divider ── */
+  .luxury-divider {
+    @apply flex items-center gap-4;
+  }
+  .luxury-divider::before,
+  .luxury-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-border;
+  }
+
+  /* ── Product card ── */
+  .product-card-image {
+    @apply overflow-hidden relative aspect-[3/4];
+  }
+  .product-card-image img {
+    @apply transition-transform duration-700 ease-out-expo;
+  }
+  .product-card-image:hover img {
+    @apply scale-105;
+  }
+
+  /* ── Btn base ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans text-sm font-medium
+           tracking-widest uppercase transition-all duration-300 ease-luxury
+           disabled:pointer-events-none disabled:opacity-40 cursor-pointer;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-obsidian hover:bg-gold-light px-8 py-3.5;
+  }
+  .btn-outline-gold {
+    @apply btn border border-gold text-gold hover:bg-gold hover:text-obsidian px-8 py-3.5;
+  }
+  .btn-ghost {
+    @apply btn text-stone hover:text-ivory px-4 py-2;
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-xs;
+  }
+
+  /* ── Input ── */
+  .input-luxury {
+    @apply w-full bg-obsidian-50 border border-border text-ivory placeholder:text-stone
+           px-4 py-3 text-sm transition-colors duration-200
+           focus:outline-none focus:border-gold focus:ring-0
+           hover:border-border-light;
+  }
+
+  /* ── Section padding ── */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* ── Container ── */
+  .container-luxury {
+    @apply mx-auto max-w-8xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Skeleton ── */
+  .skeleton {
+    @apply animate-pulse bg-gradient-to-r from-obsidian-50 via-obsidian-100 to-obsidian-50;
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* ── Gold accent line ── */
+  .gold-line {
+    @apply block h-px w-12 bg-gold mx-auto;
+  }
+}
+
+@layer utilities {
+  /* ── Text gradients ── */
+  .text-gold-gradient {
+    @apply gold-shimmer;
+  }
+
+  /* ── Overlay ── */
+  .overlay-dark {
+    @apply absolute inset-0 bg-obsidian/60;
+  }
+
+  /* ── RTL support ── */
+  [dir="rtl"] .rtl\:text-right {
+    text-align: right;
+  }
+  [dir="rtl"] .rtl\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
